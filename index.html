@@ -1,0 +1,928 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Effugium - Escape Room de terror. Desafie sua mente, supere seus limites e escape antes que o tempo acabe.">
+    <title>Effugium | Escape Room</title>
+
+    <link rel="icon" href="sources/images/icons/toma-de-decisiones.png" type="image/png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Khand:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+
+<body>
+
+    <a class="skip-link" href="#salas">Pular para o conteúdo</a>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+        <div class="header-container">
+
+            <a class="brand" href="index.html" aria-label="Effugium - Início">
+                <img class="logo" src="sources/images/effugium1.png" alt="Logo Effugium">
+            </a>
+
+            <nav class="nav-menu" id="main-nav" aria-label="Navegação principal">
+                <a class="nav-item" href="index.html">INÍCIO</a>
+                <a class="nav-item" href="#about">SOBRE NÓS</a>
+                <a class="nav-item" href="#salas">SALAS</a>
+                <a class="nav-item" href="#ranking">RANKING</a>
+                <a class="nav-item" href="#localization">ONDE ESTAMOS</a>
+                <a class="nav-item" href="#team">EQUIPE</a>
+                <a class="nav-item" href="galeria.html">GALERIA</a>
+
+                <a class="mobile-reserve" href="https://wa.me/5511983360146" target="_blank" rel="noopener noreferrer">
+                    RESERVE AGORA
+                </a>
+
+                <button class="theme-btn mobile-theme" id="theme-toggle-mobile" type="button" aria-label="Alterar tema">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+            </nav>
+
+            <div class="header-actions">
+                <a class="reserve-button" href="https://wa.me/5511983360146" target="_blank" rel="noopener noreferrer">
+                    RESERVE AGORA
+                </a>
+
+                <button class="theme-btn" id="theme-toggle" type="button" aria-label="Alterar tema">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+
+                <button class="hamburger" id="menu-toggle" type="button"
+                        aria-label="Abrir menu"
+                        aria-controls="main-nav"
+                        aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main>
+
+        <!-- ================= HERO ================= -->
+        <section class="hero" aria-label="Apresentação Effugium">
+            <div class="hero-overlay"></div>
+
+            <div class="hero-content">
+                <div class="hero-badge">
+                    <span></span>
+                    O TEMPO ESTÁ ACABANDO
+                </div>
+
+                <h1>Você consegue<br><strong>escapar?</strong></h1>
+
+                <p>
+                    Dentro deste escape room, o tempo não é apenas um desafio — ele é seu inimigo.
+                    As portas se fecham atrás de você com um estalo seco. O ar parece mais pesado.
+                    Cada segundo ecoa como um aviso. Você começa a perceber que não está apenas
+                    resolvendo enigmas… está sendo observado.
+                </p>
+
+                <a class="hero-button" href="#salas">
+                    VER SALAS
+                    <i class="fa-solid fa-arrow-right"></i>
+                </a>
+            </div>
+        </section>
+
+        <!-- ================= SOBRE ================= -->
+        <section class="about-intro" id="about">
+            <div class="container about-intro-grid">
+
+                <div class="section-label">
+                    <span class="red-line"></span>
+                    <p>UMA EXPERIÊNCIA DIFERENTE</p>
+                </div>
+
+                <div class="about-intro-content">
+                    <h2>Entre. Resolva.<br><span>Escape.</span></h2>
+                    <p>
+                        A Effugium cria experiências imersivas de escape room de terror,
+                        onde cada detalhe é pensado para desafiar sua mente, testar seus limites
+                        e transformar medo em adrenalina.
+                    </p>
+                </div>
+
+            </div>
+        </section>
+
+        <!-- ================= SALAS ================= -->
+        <section class="rooms-section" id="salas">
+            <div class="container">
+
+                <div class="section-head">
+                    <p class="eyebrow">Dossiês disponíveis</p>
+                    <h2>Escolha seu pesadelo</h2>
+                    <p>
+                        Quatro salas, quatro histórias diferentes. Cada uma foi montada com
+                        cenografia, trilha sonora e enigmas próprios — nenhuma se resolve do mesmo jeito.
+                    </p>
+                </div>
+
+                <div class="rooms-grid">
+
+                    <!-- SALA 01 -->
+                    <article class="room-card">
+                        <div class="room-image-wrap">
+                            <img class="room-image"
+                                 src="sources/images/sala1.1.png"
+                                 alt="Sala 01 - Porão do Serial Killer"
+                                 loading="lazy">
+                            <span class="room-number">SALA 01</span>
+                        </div>
+
+                        <div class="room-body">
+                            <h3>Porão do Serial Killer</h3>
+                            <p>
+                                Você foi capturado e trancado no porão de um serial killer.
+                                O tempo está acabando e cada pista pode ser a chave para sua liberdade.
+                                Encontre os segredos, resolva os enigmas e escape antes que ele volte.
+                            </p>
+
+                            <div class="room-meta">
+                                <span><strong>60</strong> min</span>
+                                <span><strong>4–6</strong> jogadores</span>
+                                <span class="difficulty">
+                                    Difícil
+                                    <span class="dots" aria-label="4 de 5 de dificuldade">
+                                        <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i></i>
+                                    </span>
+                                </span>
+                            </div>
+
+                            <div class="room-footer">
+                                <span class="room-price">R$ 110 <small>por pessoa</small></span>
+                                <a href="https://wa.me/5511983360146" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Reservar</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- SALA 02 -->
+                    <article class="room-card room-card-space">
+                        <div class="room-image-wrap">
+                            <img class="room-image"
+                                 src="sources/images/sala2.2.png"
+                                 alt="Sala 02 - Sozinho no Espaço"
+                                 loading="lazy">
+                            <span class="room-number">SALA 02</span>
+                        </div>
+
+                        <div class="room-body">
+                            <h3>Sozinho no Espaço</h3>
+                            <p>
+                                Você acorda completamente sozinho em uma estação espacial abandonada,
+                                sem comunicação e com os sistemas entrando em colapso. Encontre uma forma
+                                de reativar a estação, descubra o que aconteceu com a tripulação e escape
+                                antes que o oxigênio acabe.
+                            </p>
+
+                            <div class="room-meta">
+                                <span><strong>60</strong> min</span>
+                                <span><strong>2–5</strong> jogadores</span>
+                                <span class="difficulty">
+                                    Muito difícil
+                                    <span class="dots" aria-label="5 de 5 de dificuldade">
+                                        <i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i><i class="on"></i>
+                                    </span>
+                                </span>
+                            </div>
+
+                            <div class="room-footer">
+                                <span class="room-price">R$ 110 <small>por pessoa</small></span>
+                                <a href="https://wa.me/5511983360146" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Reservar</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- SALA 03 -->
+                    <article class="room-card">
+                        <div class="room-image-wrap">
+                            <img class="room-image"
+                                 src="sources/images/sala3.3.png"
+                                 alt="Sala 03 - Escape Alternativo"
+                                 loading="lazy">
+                            <span class="room-number">SALA 03</span>
+                        </div>
+
+                        <div class="room-body">
+                            <h3>Escape Alternativo</h3>
+                            <p>
+                                Você percebe que o lugar onde está não é exatamente o mundo que conhecia.
+                                Encontre as pistas, descubra o que existe do outro lado e escape antes que
+                                a realidade se torne permanente.
+                            </p>
+
+                            <div class="room-meta">
+                                <span><strong>45</strong> min</span>
+                                <span><strong>2–6</strong> jogadores</span>
+                                <span class="difficulty">
+                                    Médio
+                                    <span class="dots" aria-label="2 de 5 de dificuldade">
+                                        <i class="on"></i><i class="on"></i><i></i><i></i><i></i>
+                                    </span>
+                                </span>
+                            </div>
+
+                            <div class="room-footer">
+                                <span class="room-price">R$ 110 <small>por pessoa</small></span>
+                                <a href="https://wa.me/5511983360146" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Reservar</a>
+                            </div>
+                        </div>
+                    </article>
+
+                    <!-- SALA 04 -->
+                    <article class="room-card">
+                        <div class="room-image-wrap">
+                            <img class="room-image"
+                                 src="sources/images/sala4.5.png"
+                                 alt="Sala 04 - O circo de horrores"
+                                 loading="lazy">
+                            <span class="room-number">SALA 04</span>
+                        </div>
+
+                        <div class="room-body">
+                            <h3>O Circo de Horrores</h3>
+                            <p>
+                               Um circo abandonado e sombrio, cheio de enigmas, armadilhas e palhaços assustadores. Resolva os mistérios, enfrente seus medos e escape antes que o espetáculo termine!
+                            </p>
+
+                            <div class="room-meta">
+                                <span><strong>60</strong> min</span>
+                                <span><strong>3–6</strong> jogadores</span>
+                                <span class="difficulty">
+                                    Difícil
+                                    <span class="dots" aria-label="3 de 5 de dificuldade">
+                                        <i class="on"></i><i class="on"></i><i class="on"></i><i></i><i></i>
+                                    </span>
+                                </span>
+                            </div>
+
+                            <div class="room-footer">
+                                <span class="room-price">R$ 110 <small>por pessoa</small></span>
+                                <a href="https://wa.me/5511983360146" target="_blank" rel="noopener noreferrer" class="btn btn-outline">Reservar</a>
+                            </div>
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+<!-- ================= RANKING ================= -->
+<section class="ranking-section" id="ranking">
+
+    <div class="container">
+
+        <div class="ranking-heading">
+
+            <div class="section-label">
+                <span class="red-line"></span>
+                <p>HALL DA FUGA</p>
+            </div>
+
+            <h2>
+                QUEM É O <span>MAIS RÁPIDO?</span>
+            </h2>
+
+            <p>
+                Escapou? Então seu tempo pode entrar para a história.
+                Supere outros grupos e conquiste seu lugar no ranking da Effugium.
+            </p>
+
+        </div>
+
+
+        <!-- SELEÇÃO DAS SALAS -->
+        <div class="ranking-tabs">
+
+            <button class="ranking-tab active" data-room="serial">
+                <span>SALA 01</span>
+                Porão do Serial Killer
+            </button>
+
+            <button class="ranking-tab" data-room="espaco">
+                <span>SALA 02</span>
+                Sozinho no Espaço
+            </button>
+
+            <button class="ranking-tab" data-room="alternativo">
+                <span>SALA 03</span>
+                Escape Alternativo
+            </button>
+
+            <button class="ranking-tab" data-room="circo">
+                <span>SALA 04</span>
+                O Circo de Horrores
+            </button>
+
+        </div>
+
+
+        <!-- SALA ATUAL -->
+        <div class="ranking-room-title">
+
+            <span>RECORDISTAS DA SALA</span>
+
+            <h3 id="ranking-room-name">
+                PORÃO DO SERIAL KILLER
+            </h3>
+
+        </div>
+
+
+        <!-- PODIUM -->
+        <div class="ranking-podium" id="ranking-podium">
+
+            <!-- preenchido pelo JS -->
+
+        </div>
+
+
+        <!-- DEMAIS POSIÇÕES -->
+        <div class="ranking-table">
+
+            <div class="ranking-table-head">
+
+                <span>#</span>
+                <span>EQUIPE</span>
+                <span>TEMPO</span>
+                <span>DATA</span>
+
+            </div>
+
+            <div id="ranking-list">
+
+                <!-- preenchido pelo JS -->
+
+            </div>
+
+        </div>
+
+
+        <!-- CTA -->
+        <div class="ranking-cta">
+
+            <div class="ranking-cta-icon">
+                <i class="fa-solid fa-bolt"></i>
+            </div>
+
+            <div class="ranking-cta-text">
+
+                <h3>
+                    QUER ENTRAR PARA O HALL DA FUGA?
+                </h3>
+
+                <p>
+                    Resolva os enigmas, escape antes dos outros
+                    e registre o seu tempo com nossa equipe.
+                </p>
+
+            </div>
+
+            <a
+                href="#salas"
+                target="_blank"
+                rel="noopener noreferrer"
+                class="ranking-cta-button">
+
+                RESERVE SUA SALA
+                <i class="fa-solid fa-arrow-right"></i>
+
+            </a>
+
+        </div>
+
+    </div>
+
+</section>
+        <!-- ================= LOCALIZAÇÃO / EXPERIÊNCIA ================= -->
+        <section class="location-section" id="localization">
+            <div class="container">
+
+                <div class="location-heading">
+                    <div>
+                        <span class="red-line"></span>
+                        <h2>Onde estamos</h2>
+                    </div>
+
+                    <p>
+                        Rua Vergueiro, 2541 - Vila Mariana, São Paulo - SP, 04101-200
+                    </p>
+                </div>
+
+                <div class="map-wrap">
+    <iframe
+        src="https://www.google.com/maps?q=-23.58369831176627,-46.63652760386633&z=16&output=embed"
+        width="600"
+        height="450"
+        style="border:0;"
+        allowfullscreen=""
+        loading="lazy"
+        referrerpolicy="no-referrer-when-downgrade">
+    </iframe>
+</div>
+
+                <p class="location-note">
+                    * Disponibilizamos estacionamento para os clientes e fornecedores.
+                </p>
+
+                <div class="experience-grid">
+
+                    <div class="experience-card">
+                        <img src="sources/images/icons/toma-de-decisiones.png" alt="">
+                        <span></span>
+                        <p>
+                            Desafie sua mente, teste seus limites e viva uma experiência
+                            imersiva onde cada pista leva a uma nova descoberta.
+                        </p>
+                    </div>
+
+                    <div class="experience-card">
+                        <img src="sources/images/icons/burbuja-de-dialogo.png" alt="">
+                        <span></span>
+                        <p>
+                            Fortaleça a sintonia da sua equipe. A comunicação é a chave
+                            principal para escapar e alcançar o seu objetivo.
+                        </p>
+                    </div>
+
+                    <div class="experience-card">
+                        <img src="sources/images/icons/whatsapp.png" alt="">
+                        <span></span>
+                        <p>
+                            Você e sua equipe têm apenas 60 minutos para desvendar pistas,
+                            resolver enigmas e escapar. Agende pelo WhatsApp.
+                        </p>
+                    </div>
+
+                </div>
+            </div>
+        </section>
+
+        <!-- ================= EQUIPE ================= -->
+        <section class="team-section" id="team">
+            <div class="container">
+
+                <div class="team-heading">
+                    <span class="red-line"></span>
+                    <h2>Stakeholders</h2>
+                </div>
+
+                <div class="team-grid">
+
+                    <article class="team-card">
+                        <img src="sources/images/otaviocerto.jpeg" alt="Otávio de Aquino" loading="lazy">
+                        <span class="team-line"></span>
+                        <h3>Otávio de Aquino</h3>
+                        <p>Diretor de Processos</p>
+                        <div class="social">
+                            <a href="https://www.linkedin.com/in/otavio-de-aquino-dos-santos-a852a2246/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn de Otávio"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://www.instagram.com/_otavioaquino/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Otávio"><i class="fab fa-instagram"></i></a>
+                            <a href="https://github.com/AquinoOtavio" target="_blank" rel="noopener noreferrer" aria-label="GitHub de Otávio"><i class="fab fa-github"></i></a>
+                        </div>
+                    </article>
+
+                    <article class="team-card">
+                        <img src="sources/images/renan.jpeg" alt="Renan Urbanjos" loading="lazy">
+                        <span class="team-line"></span>
+                        <h3>Renan Urbanjos</h3>
+                        <p>Diretor de Marketing</p>
+                        <div class="social">
+                            <a href="https://www.linkedin.com/in/renan-urbanjos-b66a21352/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://www.instagram.com/ray._o_ranger/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Renan"><i class="fab fa-instagram"></i></a>
+                            
+                        </div>
+                    </article>
+
+                    <article class="team-card">
+                        <img src="sources/images/joao.jpeg" alt="João Victor" loading="lazy">
+                        <span class="team-line"></span>
+                        <h3>João Victor</h3>
+                        <p>Diretor Financeiro</p>
+                        <div class="social">
+                            <a href="https://www.linkedin.com/in/joao-alves-78b938341/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://www.instagram.com/jv.as007/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de João Victor"><i class="fab fa-instagram"></i></a>
+                            
+                        </div>
+                    </article>
+
+                    <article class="team-card">
+                        <img src="sources/images/heitorcerto.jpeg" alt="Heitor de Resende" loading="lazy">
+                        <span class="team-line"></span>
+                        <h3>Heitor de Resende</h3>
+                        <p>Diretor de Gestão</p>
+                        <div class="social">
+                            <a href="https://www.linkedin.com/in/otavio-aquino-a852a2246/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://www.instagram.com/hro_1904/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Heitor"><i class="fab fa-instagram"></i></a>
+                            
+                        </div>
+                    </article>
+
+                    <article class="team-card">
+                        
+                       <img src="sources/images/vitor.jpg" alt="Heitor de Resende" loading="lazy">
+                        <span class="team-line"></span>
+                        <h3>Vitor Richard</h3>
+                        <p>Cenógrafo</p>
+                        <div class="social">
+                            <a href="https://www.linkedin.com/in/vitor-pereira-ba7507297/" target="_blank" rel="noopener noreferrer" aria-label="LinkedIn"><i class="fab fa-linkedin"></i></a>
+                            <a href="https://www.instagram.com/eubrzin/" target="_blank" rel="noopener noreferrer" aria-label="Instagram de Vitor Richard"><i class="fab fa-instagram"></i></a>
+                            
+                        </div>
+                    </article>
+
+                </div>
+            </div>
+        </section>
+
+    </main>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <img src="sources/images/effugium1.png" alt="Effugium" class="footer-logo">
+        <p>Todos os direitos reservados pela EFFUGIUM © 2026 | Effugium Jogos e Experiências Imersivas LTDA</p>
+    </footer>
+
+    <!-- VLibras -->
+    <div vw class="enabled">
+        <div vw-access-button class="active"></div>
+        <div vw-plugin-wrapper>
+            <div class="vw-plugin-top-wrapper"></div>
+        </div>
+    </div>
+
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+    <script>
+        // VLibras
+        new window.VLibras.Widget('https://vlibras.gov.br/app');
+
+        // ================= MENU MOBILE =================
+        const menuToggle = document.getElementById('menu-toggle');
+        const mainNav = document.getElementById('main-nav');
+
+        function closeMenu() {
+            mainNav.classList.remove('open');
+            menuToggle.classList.remove('active');
+            menuToggle.setAttribute('aria-expanded', 'false');
+        }
+
+        menuToggle.addEventListener('click', () => {
+            const isOpen = mainNav.classList.toggle('open');
+            menuToggle.classList.toggle('active', isOpen);
+            menuToggle.setAttribute('aria-expanded', String(isOpen));
+        });
+
+        document.querySelectorAll('.nav-item, .mobile-reserve').forEach(link => {
+            link.addEventListener('click', closeMenu);
+        });
+
+        window.addEventListener('resize', () => {
+            if (window.innerWidth > 920) {
+                closeMenu();
+            }
+        });
+
+        // ================= TEMA =================
+        const themeButtons = [
+            document.getElementById('theme-toggle'),
+            document.getElementById('theme-toggle-mobile')
+        ];
+
+        function updateThemeIcons() {
+            const isLight = document.body.classList.contains('light');
+
+            themeButtons.forEach(button => {
+                if (!button) return;
+                button.innerHTML = isLight
+                    ? '<i class="fa-solid fa-moon"></i>'
+                    : '<i class="fa-solid fa-sun"></i>';
+            });
+        }
+
+        function setTheme(theme) {
+            document.body.classList.toggle('light', theme === 'light');
+            localStorage.setItem('theme', theme);
+            updateThemeIcons();
+        }
+
+        const savedTheme = localStorage.getItem('theme');
+        setTheme(savedTheme === 'light' ? 'light' : 'dark');
+
+        themeButtons.forEach(button => {
+            if (!button) return;
+            button.addEventListener('click', () => {
+                setTheme(document.body.classList.contains('light') ? 'dark' : 'light');
+            });
+        });
+
+        // ================= SCROLL SUAVE =================
+        document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+            anchor.addEventListener('click', function (event) {
+                const target = document.querySelector(this.getAttribute('href'));
+                if (!target) return;
+
+                event.preventDefault();
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            });
+        });
+
+
+    // ================= RANKING =================
+
+const rankingData = {
+
+    serial: {
+        name: "PORÃO DO SERIAL KILLER",
+
+        players: [
+            {
+                team: "Os Sobreviventes",
+                time: 2945, // 49:05
+                date: "08/09/2026"
+            },
+            {
+                team: "Equipe Sem Medo",
+                time: 3158, // 52:38
+                date: "05/09/2026"
+            },
+            {
+                team: "Fugitivos SP",
+                time: 3284, // 54:44
+                date: "31/08/2026"
+            },
+            {
+                team: "Os Investigadores",
+                time: 3427, // 57:07
+                date: "28/08/2026"
+            },
+            {
+                team: "Time X",
+                time: 3519, // 58:39
+                date: "25/08/2026"
+            },
+            {
+                team: "Os Desesperados",
+                time: 3568, // 59:28
+                date: "20/08/2026"
+            }
+        ]
+    },
+
+
+    espaco: {
+        name: "SOZINHO NO ESPAÇO",
+
+        players: [
+            {
+                team: "Apollo 5",
+                time: 3012, // 50:12
+                date: "09/09/2026"
+            },
+            {
+                team: "Cosmonautas",
+                time: 3176, // 52:56
+                date: "06/09/2026"
+            },
+            {
+                team: "Tripulação 404",
+                time: 3298, // 54:58
+                date: "01/09/2026"
+            },
+            {
+                team: "Galácticos",
+                time: 3441, // 57:21
+                date: "29/08/2026"
+            },
+            {
+                team: "Space Hunters",
+                time: 3527, // 58:47
+                date: "24/08/2026"
+            }
+        ]
+    },
+
+
+    alternativo: {
+        name: "ESCAPE ALTERNATIVO",
+
+        players: [
+            {
+                team: "Os Escolhidos",
+                time: 2864, // 47:44
+                date: "07/09/2026"
+            },
+            {
+                team: "Realidade 404",
+                time: 3048, // 50:48
+                date: "04/09/2026"
+            },
+            {
+                team: "Outra Dimensão",
+                time: 3215, // 53:35
+                date: "30/08/2026"
+            },
+            {
+                team: "Mandela",
+                time: 3389, // 56:29
+                date: "27/08/2026"
+            },
+            {
+                team: "Skywalkers",
+                time: 3542, // 59:02
+                date: "22/08/2026"
+            }
+        ]
+    },
+
+
+    circo: {
+        name: "O CIRCO DE HORRORES",
+
+        players: [
+            {
+                team: "Os Palhaços",
+                time: 2998, // 49:58
+                date: "08/09/2026"
+            },
+            {
+                team: "Circo Sombrio",
+                time: 3164, // 52:44
+                date: "03/09/2026"
+            },
+            {
+                team: "Último Espetáculo",
+                time: 3317, // 55:17
+                date: "30/08/2026"
+            },
+            {
+                team: "A Plateia",
+                time: 3456, // 57:36
+                date: "26/08/2026"
+            },
+            {
+                team: "Sem Saída",
+                time: 3575, // 59:35
+                date: "21/08/2026"
+            }
+        ]
+    }
+
+};
+
+
+const rankingTabs = document.querySelectorAll(".ranking-tab");
+const rankingRoomName = document.getElementById("ranking-room-name");
+const rankingPodium = document.getElementById("ranking-podium");
+const rankingList = document.getElementById("ranking-list");
+
+
+function formatRankingTime(seconds) {
+
+    const minutes = Math.floor(seconds / 60);
+
+    const remainingSeconds = seconds % 60;
+
+    return `${String(minutes).padStart(2, "0")}:${String(remainingSeconds).padStart(2, "0")}`;
+}
+
+
+function renderRanking(room) {
+
+    const data = rankingData[room];
+
+    if (!data) return;
+
+
+    const players = [...data.players].sort(
+        (a, b) => a.time - b.time
+    );
+
+
+    rankingRoomName.textContent = data.name;
+
+
+    // ================= PODIUM =================
+
+    rankingPodium.innerHTML = "";
+
+    const podiumPlayers = players.slice(0, 3);
+
+    const medals = ["🥇", "🥈", "🥉"];
+
+    const classes = [
+        "first",
+        "second",
+        "third"
+    ];
+
+    const positions = [
+        "1º LUGAR",
+        "2º LUGAR",
+        "3º LUGAR"
+    ];
+
+
+    podiumPlayers.forEach((player, index) => {
+
+        const card = document.createElement("div");
+
+        card.className = `ranking-card ${classes[index]}`;
+
+        card.innerHTML = `
+
+            <div class="ranking-medal">
+                ${medals[index]}
+            </div>
+
+            <div class="ranking-position">
+                ${positions[index]}
+            </div>
+
+            <div class="ranking-team">
+                ${player.team}
+            </div>
+
+            <div class="ranking-time">
+                ${formatRankingTime(player.time)}
+            </div>
+
+        `;
+
+        rankingPodium.appendChild(card);
+
+    });
+
+
+    // ================= LISTA =================
+
+    rankingList.innerHTML = "";
+
+
+    players.slice(3).forEach((player, index) => {
+
+        const position = index + 4;
+
+        const row = document.createElement("div");
+
+        row.className = "ranking-row";
+
+        row.innerHTML = `
+
+            <div class="ranking-number">
+                ${position}º
+            </div>
+
+            <div class="ranking-team-name">
+                ${player.team}
+            </div>
+
+            <div class="ranking-row-time">
+                ${formatRankingTime(player.time)}
+            </div>
+
+            <div class="ranking-date">
+                ${player.date}
+            </div>
+
+        `;
+
+        rankingList.appendChild(row);
+
+    });
+
+}
+
+
+rankingTabs.forEach(tab => {
+
+    tab.addEventListener("click", () => {
+
+        rankingTabs.forEach(item => {
+            item.classList.remove("active");
+        });
+
+        tab.classList.add("active");
+
+        renderRanking(tab.dataset.room);
+
+    });
+
+});
+
+
+renderRanking("serial");
+
+    </script>
+
+</body>
+</html>

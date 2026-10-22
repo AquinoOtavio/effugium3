@@ -1,0 +1,424 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>Galeria | Effugium Escape Room</title>
+
+    <!-- Favicon -->
+    <link rel="icon" href="sources/images/icons/toma-de-decisiones.png" type="image/png">
+
+    <!-- =====================================================
+         FONTES
+    ====================================================== -->
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Anton&family=Poppins:wght@300;400;500;600;700&family=Ubuntu:wght@400;500;600;700&display=swap"
+        rel="stylesheet">
+
+    <!-- =====================================================
+         FONT AWESOME
+    ====================================================== -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+
+    <!-- =====================================================
+         BOOTSTRAP
+    ====================================================== -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/css/bootstrap.min.css">
+
+    <!-- =====================================================
+         EKKO LIGHTBOX
+    ====================================================== -->
+
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.css">
+
+    <!-- =====================================================
+         CSS DO SITE
+    ====================================================== -->
+
+    <link rel="stylesheet" href="styles/style2.css">
+
+</head>
+
+
+<body>
+
+
+    <!-- =====================================================
+         HEADER
+    ====================================================== -->
+
+    <header class="header">
+
+        <div class="header-container">
+
+
+            <!-- ================= LOGO ================= -->
+
+            <a class="brand" href="index.html" aria-label="Effugium - Início">
+
+                <img class="logo" src="sources/images/effugium1.png" alt="Logo Effugium">
+
+            </a>
+
+
+            <!-- =================================================
+                 MENU PRINCIPAL
+            ================================================= -->
+
+            <nav class="nav-menu" id="main-nav" aria-label="Navegação principal">
+
+                <a class="nav-item" href="index.html">
+                    INÍCIO
+                </a>
+
+
+                <a class="nav-item" href="index.html#about">
+                    SOBRE NÓS
+                </a>
+
+
+                <a class="nav-item" href="index.html#salas">
+                    SALAS
+                </a>
+
+
+                <a class="nav-item" href="index.html#localization">
+                    ONDE ESTAMOS
+                </a>
+
+
+                <a class="nav-item" href="index.html#team">
+                    EQUIPE
+                </a>
+
+
+                <a class="nav-item active" href="galeria.html">
+                    GALERIA
+                </a>
+
+
+                <!-- =================================================
+                     RESERVA MOBILE
+                ================================================== -->
+
+                <a class="mobile-reserve" href="https://wa.me/5511983360146" target="_blank" rel="noopener noreferrer">
+                    RESERVE AGORA
+                </a>
+
+
+                <!-- =================================================
+                     TEMA MOBILE
+                ================================================== -->
+
+                <button class="theme-btn mobile-theme" id="theme-toggle-mobile" type="button" aria-label="Alterar tema">
+
+                    <i class="fa-solid fa-sun"></i>
+
+                </button>
+
+            </nav>
+
+
+            <!-- =================================================
+                 AÇÕES DO HEADER
+            ================================================= -->
+
+            <div class="header-actions">
+
+
+                <!-- ================= RESERVA ================= -->
+
+                <a class="reserve-button" href="https://wa.me/5511983360146" target="_blank" rel="noopener noreferrer">
+                    RESERVE AGORA
+                </a>
+
+
+                <!-- ================= TEMA ================= -->
+
+                <button class="theme-btn" id="theme-toggle" type="button" aria-label="Alterar tema">
+
+                    <i class="fa-solid fa-sun"></i>
+
+                </button>
+
+
+                <!-- =================================================
+                     HAMBURGUER
+                ================================================== -->
+
+                <button class="hamburger" id="menu-toggle" type="button" aria-label="Abrir menu"
+                    aria-controls="main-nav" aria-expanded="false">
+
+                    <span></span>
+                    <span></span>
+                    <span></span>
+
+                </button>
+
+            </div>
+
+        </div>
+
+    </header>
+
+
+    <!-- =====================================================
+         CONTEÚDO PRINCIPAL
+    ====================================================== -->
+
+    <main class="gallery-page">
+
+
+        <!-- =================================================
+             HERO DA GALERIA
+        ================================================== -->
+
+        <section class="gallery-title">
+
+            <div class="gallery-title-content">
+
+
+                <span class="gallery-kicker">
+                    REGISTROS DA EFFUGIUM
+                </span>
+
+
+                <h1>
+                    GALERIA
+                </h1>
+
+
+                <p>
+                    Confira alguns registros das nossas experiências,
+                    ambientes e salas.
+                </p>
+
+            </div>
+
+        </section>
+
+
+        <!-- =================================================
+             GALERIA
+        ================================================== -->
+
+        <section class="gallery-content">
+
+            <div class="container">
+
+
+                <!-- =================================================
+                     TÍTULO DA SEÇÃO
+                ================================================== -->
+
+                <div class="gallery-section-title">
+
+                    <span></span>
+
+                    <div>
+
+                        <p>
+                            EXPLORE
+                        </p>
+
+                        <h2>
+                            Nossas experiências
+                        </h2>
+
+                    </div>
+
+                </div>
+
+
+                <!-- =================================================
+                     PRIMEIRA LINHA
+                ================================================== -->
+
+                <div class="row">
+
+
+                    <!-- FOTO 1 -->
+
+                    <a href="sources/images/amigos_Sala.png" data-toggle="lightbox" data-gallery="gallery"
+                        data-title="Effugium Escape Room" class="col-md-4">
+
+                        <img src="sources/images/amigos_Sala.png" class="img-fluid rounded" alt="Effugium Escape Room">
+
+                    </a>
+
+
+                    <!-- FOTO 2 -->
+
+                    <a href="sources/images/Captura de tela 2026-08-07 164826.png" data-toggle="lightbox"
+                        data-gallery="gallery" data-title="Experiência Effugium" class="col-md-4">
+
+                        <img src="sources/images/Captura de tela 2026-08-07 164826.png" class="img-fluid rounded"
+                            alt="Experiência Effugium">
+
+                    </a>
+
+
+                    <!-- FOTO 3 -->
+
+                    <a href="sources/images/amigos2.png" data-toggle="lightbox" data-gallery="gallery"
+                        data-title="Ambiente Effugium" class="col-md-4">
+
+                        <img src="sources/images/amigos2.png" class="img-fluid rounded" alt="Ambiente Effugium">
+
+                    </a>
+
+                </div>
+
+
+                <!-- =================================================
+                     SEGUNDA LINHA
+                ================================================== -->
+
+                <div class="row">
+
+
+                    <!-- FOTO 4 -->
+
+                    <a href="sources/images/Captura de tela 2026-08-07 164901.png" data-toggle="lightbox"
+                        data-gallery="gallery" data-title="Detalhes da experiência" class="col-md-4">
+
+                        <img src="sources/images/Captura de tela 2026-08-07 164901.png" class="img-fluid rounded"
+                            alt="Detalhes da experiência">
+
+                    </a>
+
+
+                    <!-- FOTO 5 -->
+
+                    <a href="sources/images/amigos3.png" data-toggle="lightbox" data-gallery="gallery"
+                        data-title="Cenografia Effugium" class="col-md-4">
+
+                        <img src="sources/images/amigos3.png" class="img-fluid rounded" alt="Cenografia Effugium">
+
+                    </a>
+
+
+                    <!-- FOTO 6 -->
+
+                    <a href="sources/images/Captura de tela 2026-08-07 164919.png" data-toggle="lightbox"
+                        data-gallery="gallery" data-title="Ambiente imersivo" class="col-md-4">
+
+                        <img src="sources/images/Captura de tela 2026-08-07 164919.png" class="img-fluid rounded"
+                            alt="Ambiente imersivo">
+
+                    </a>
+
+                </div>
+
+
+                <!-- =================================================
+                     TERCEIRA LINHA
+                ================================================== -->
+
+                <div class="row">
+
+
+                    <!-- SALA 1 -->
+
+                    <a href="sources/images/correndo.png" data-toggle="lightbox" data-gallery="gallery"
+                        data-title="Sala 01 - Porão do Serial Killer" class="col-md-4">
+
+                        <img src="sources/images/correndo.png" class="img-fluid rounded"
+                            alt="Sala 01 - Porão do Serial Killer">
+
+                    </a>
+
+
+                    <!-- SALA 2 -->
+
+                    <a href="sources/images/fantasma.png" data-toggle="lightbox" data-gallery="gallery"
+                        data-title="Sala 02 - Sozinho no Espaço" class="col-md-4">
+
+                        <img src="sources/images/fantasma.png" class="img-fluid rounded"
+                            alt="Sala 02 - Sozinho no Espaço">
+
+                    </a>
+
+                     <a href="sources/images/murder.png" data-toggle="lightbox" data-gallery="gallery"
+                        data-title="Sala 02 - Sozinho no Espaço" class="col-md-4">
+
+                        <img src="sources/images/murder.png" class="img-fluid rounded"
+                            alt="Sala 02 - Sozinho no Espaço">
+
+                    </a>
+
+
+                </div>
+
+            </div>
+
+        </section>
+
+    </main>
+
+
+    <!-- =====================================================
+         FOOTER
+    ====================================================== -->
+
+    <footer class="footer">
+
+
+        <img class="footer-logo" src="sources/images/effugium1.png" alt="Effugium">
+
+
+        <p>
+            Todos os direitos reservados pela EFFUGIUM © 2026 |
+            Effugium Jogos e Experiências Imersivas LTDA
+        </p>
+
+    </footer>
+
+
+    <!-- =====================================================
+         VLIBRAS
+    ====================================================== -->
+
+    <div vw class="enabled">
+
+        <div vw-access-button class="active"></div>
+
+
+        <div vw-plugin-wrapper>
+
+            <div class="vw-plugin-top-wrapper"></div>
+
+        </div>
+
+    </div>
+
+
+    <script src="https://vlibras.gov.br/app/vlibras-plugin.js"></script>
+
+
+    <script>
+
+        new window.VLibras.Widget(
+            "https://vlibras.gov.br/app"
+        );
+
+    </script>
+    <script src="script.js"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/4.3.1/js/bootstrap.min.js"></script>
+
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/ekko-lightbox/5.3.0/ekko-lightbox.min.js"></script>
+
+    <script src="script.js"></script>
+</body>
+
+</html>
