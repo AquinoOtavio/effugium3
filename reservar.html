@@ -1,0 +1,1207 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="Reserve sua sala na Effugium. Escolha a sala, data, horário e informe se precisa de intérprete de Libras.">
+    <title>Reservar Sala | Effugium</title>
+
+    <link rel="icon" href="sources/images/icons/toma-de-decisiones.png" type="image/png">
+
+    <link href="https://fonts.googleapis.com/css2?family=Anton&family=Khand:wght@300;400;500;600&family=Poppins:wght@300;400;500;600;700&family=Ubuntu:wght@300;400;500;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css">
+    <link rel="stylesheet" href="styles/styles.css">
+
+    <style>
+        /* ================= PÁGINA DE RESERVA ================= */
+
+        .reserva-page {
+            min-height: 100vh;
+            padding: 130px 0 100px;
+            background: #0e0e0e;
+        }
+
+        .reserva-title {
+            font-family: var(--display);
+            font-size: clamp(3rem, 6vw, 5rem);
+            line-height: 0.95;
+            text-transform: uppercase;
+            color: var(--white);
+            margin-top: 16px;
+        }
+
+        .reserva-title span {
+            color: var(--red);
+        }
+
+        .reserva-intro {
+            max-width: 560px;
+            margin-top: 18px;
+            color: #9d9d9d;
+            font-size: 0.97rem;
+            line-height: 1.75;
+        }
+
+        .reserva-grid {
+            display: grid;
+            grid-template-columns: 0.8fr 1.2fr;
+            gap: 40px;
+            align-items: start;
+        }
+
+        /* RESUMO */
+
+        .summary-card {
+            position: sticky;
+            top: 110px;
+            padding: 30px;
+            background: var(--black-card);
+            border: 1px solid var(--line);
+            border-left: 3px solid var(--red);
+            border-radius: var(--radius);
+        }
+
+        .summary-card h2 {
+            font-family: var(--nav);
+            font-size: 0.8rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: #969696;
+            margin-bottom: 18px;
+        }
+
+        .summary-list {
+            list-style: none;
+        }
+
+        .summary-list li {
+            display: flex;
+            justify-content: space-between;
+            gap: 14px;
+            padding: 12px 0;
+            border-bottom: 1px solid rgba(255, 255, 255, 0.08);
+            font-size: 0.9rem;
+        }
+
+        .summary-list li span:first-child {
+            color: #8f8f8f;
+        }
+
+        .summary-list li span:last-child {
+            color: var(--white);
+            font-weight: 500;
+            text-align: right;
+        }
+
+        .summary-total {
+            margin-top: 20px;
+            display: flex;
+            justify-content: space-between;
+            align-items: baseline;
+        }
+
+        .summary-total span:first-child {
+            font-family: var(--nav);
+            font-size: 0.8rem;
+            color: #8f8f8f;
+            text-transform: uppercase;
+            letter-spacing: 0.08em;
+        }
+
+        .summary-total strong {
+            font-family: var(--display);
+            font-size: 2.2rem;
+            font-weight: 400;
+            color: var(--red);
+        }
+
+        .summary-note {
+            margin-top: 12px;
+            font-size: 0.76rem;
+            color: #777;
+        }
+
+        /* FORMULÁRIO */
+
+        .form-card {
+            padding: 36px;
+            background: var(--black-card);
+            border: 1px solid var(--line);
+            border-radius: var(--radius);
+        }
+
+        .form-section-title {
+            font-family: var(--nav);
+            font-size: 0.8rem;
+            letter-spacing: 0.14em;
+            text-transform: uppercase;
+            color: var(--red);
+            margin: 6px 0 18px;
+        }
+
+        .form-grid {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 20px 18px;
+        }
+
+        .field {
+            display: flex;
+            flex-direction: column;
+            gap: 8px;
+            min-width: 0;
+        }
+
+        .field.full {
+            grid-column: 1 / -1;
+        }
+
+        .field label {
+            font-family: var(--nav);
+            font-size: 0.78rem;
+            font-weight: 500;
+            letter-spacing: 0.05em;
+            text-transform: uppercase;
+            color: #cfcfcf;
+        }
+
+        .field label .req {
+            color: var(--red);
+        }
+
+        .field input,
+        .field select,
+        .field textarea {
+            width: 100%;
+            padding: 13px 14px;
+            background: #101010;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 10px;
+            color: var(--white);
+            font-family: var(--body);
+            font-size: 0.95rem;
+            transition: border-color 0.2s ease, box-shadow 0.2s ease;
+        }
+
+        .field textarea {
+            min-height: 90px;
+            resize: vertical;
+        }
+
+        .field select option {
+            background: #101010;
+            color: #fff;
+        }
+
+        .field input:focus,
+        .field select:focus,
+        .field textarea:focus {
+            outline: none;
+            border-color: var(--red);
+            box-shadow: 0 0 0 3px rgba(206, 18, 18, 0.2);
+        }
+
+        .hint {
+            font-size: 0.75rem;
+            color: #7d7d7d;
+        }
+
+        .error-msg {
+            display: none;
+            font-size: 0.75rem;
+            color: var(--red-bright);
+        }
+
+        .field.invalid input,
+        .field.invalid select,
+        .field.invalid textarea {
+            border-color: var(--red-bright);
+        }
+
+        .field.invalid .error-msg {
+            display: block;
+        }
+
+        /* CHECKBOX */
+
+        .checkbox-row {
+            display: flex;
+            gap: 14px;
+            align-items: flex-start;
+            padding: 16px 18px;
+            background: #101010;
+            border: 1px solid rgba(255, 255, 255, 0.14);
+            border-radius: 10px;
+            cursor: pointer;
+        }
+
+        .checkbox-row input[type="checkbox"] {
+            width: 20px;
+            height: 20px;
+            flex-shrink: 0;
+            margin-top: 2px;
+            accent-color: var(--red);
+            cursor: pointer;
+        }
+
+        .checkbox-row strong {
+            display: block;
+            font-weight: 600;
+            color: var(--white);
+            font-size: 0.95rem;
+        }
+
+        .checkbox-row small {
+            display: block;
+            margin-top: 3px;
+            color: #8f8f8f;
+            font-size: 0.8rem;
+            line-height: 1.5;
+        }
+
+        .interprete-box {
+            display: none;
+            margin-top: 12px;
+            padding: 16px 18px;
+            border-left: 3px solid var(--red);
+            background: rgba(206, 18, 18, 0.06);
+            border-radius: 0 10px 10px 0;
+            font-size: 0.85rem;
+            color: #cfcfcf;
+            line-height: 1.6;
+        }
+
+        .interprete-box.show {
+            display: block;
+        }
+
+        .terms-row {
+            display: flex;
+            align-items: center;
+            gap: 10px;
+            flex-wrap: wrap;
+            font-size: 0.9rem;
+            color: #cfcfcf;
+        }
+
+        .terms-row input[type="checkbox"] {
+            width: 18px;
+            height: 18px;
+            accent-color: var(--red);
+            cursor: pointer;
+        }
+
+        .link-btn {
+            background: none;
+            border: none;
+            padding: 0;
+            color: var(--red-bright);
+            text-decoration: underline;
+            cursor: pointer;
+            font: inherit;
+        }
+
+        .form-actions {
+            display: grid;
+            grid-template-columns: 1fr auto;
+            gap: 14px;
+            margin-top: 30px;
+        }
+
+        .btn-primary,
+        .btn-ghost {
+            min-height: 54px;
+            padding: 13px 24px;
+            border-radius: 10px;
+            font-family: var(--nav);
+            font-size: 0.92rem;
+            font-weight: 600;
+            cursor: pointer;
+            border: none;
+            transition: background 0.25s ease, transform 0.25s ease;
+        }
+
+        .btn-primary {
+            background: var(--red);
+            color: var(--white);
+        }
+
+        .btn-primary:hover {
+            background: var(--red-dark);
+            transform: translateY(-2px);
+        }
+
+        .btn-ghost {
+            background: transparent;
+            color: #cfcfcf;
+            border: 1px solid rgba(255, 255, 255, 0.2);
+        }
+
+        .btn-ghost:hover {
+            border-color: var(--red);
+            color: var(--white);
+        }
+
+        .alert-success {
+            display: none;
+            margin-top: 20px;
+            padding: 16px 18px;
+            border-radius: 10px;
+            background: rgba(40, 170, 90, 0.12);
+            border: 1px solid rgba(40, 170, 90, 0.4);
+            color: #cfeedd;
+            font-size: 0.9rem;
+            line-height: 1.6;
+        }
+
+        .alert-success.show {
+            display: block;
+        }
+
+        /* MODAL DE TERMOS */
+
+        .modal {
+            position: fixed;
+            inset: 0;
+            z-index: 20000;
+            display: none;
+            align-items: center;
+            justify-content: center;
+            padding: 20px;
+            background: rgba(0, 0, 0, 0.78);
+        }
+
+        .modal.open {
+            display: flex;
+        }
+
+        .modal-box {
+            width: 100%;
+            max-width: 640px;
+            max-height: 85vh;
+            display: flex;
+            flex-direction: column;
+            background: #141414;
+            border: 1px solid var(--line);
+            border-top: 3px solid var(--red);
+            border-radius: var(--radius);
+        }
+
+        .modal-head {
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            padding: 20px 26px;
+            border-bottom: 1px solid var(--line);
+        }
+
+        .modal-head h2 {
+            font-family: var(--display);
+            font-size: 1.8rem;
+            font-weight: 400;
+            text-transform: uppercase;
+            color: var(--white);
+        }
+
+        .modal-close {
+            width: 38px;
+            height: 38px;
+            border: none;
+            border-radius: 50%;
+            background: #222;
+            color: var(--white);
+            cursor: pointer;
+        }
+
+        .modal-body {
+            padding: 22px 26px;
+            overflow-y: auto;
+        }
+
+        .modal-body h3 {
+            font-family: var(--nav);
+            font-size: 0.92rem;
+            font-weight: 600;
+            color: var(--white);
+            margin-top: 18px;
+        }
+
+        .modal-body h3:first-child {
+            margin-top: 0;
+        }
+
+        .modal-body p {
+            margin-top: 6px;
+            font-size: 0.88rem;
+            line-height: 1.7;
+            color: #b7b7b7;
+        }
+
+        .modal-foot {
+            display: flex;
+            justify-content: flex-end;
+            gap: 12px;
+            padding: 18px 26px;
+            border-top: 1px solid var(--line);
+        }
+
+        .modal-foot .btn-primary,
+        .modal-foot .btn-ghost {
+            min-height: 46px;
+            padding: 10px 20px;
+            font-size: 0.85rem;
+        }
+
+        body.modal-open {
+            overflow: hidden;
+        }
+
+        /* MODO CLARO */
+
+        body.light .reserva-page {
+            background: #e9e9e9;
+        }
+
+        body.light .reserva-title {
+            color: #151515;
+        }
+
+        body.light .reserva-intro {
+            color: #5a5a5a;
+        }
+
+        body.light .summary-card,
+        body.light .form-card {
+            background: #ffffff;
+            border-color: rgba(0, 0, 0, 0.09);
+        }
+
+        body.light .summary-list li {
+            border-bottom-color: rgba(0, 0, 0, 0.08);
+        }
+
+        body.light .summary-list li span:first-child,
+        body.light .summary-total span:first-child {
+            color: #666;
+        }
+
+        body.light .summary-list li span:last-child {
+            color: #171717;
+        }
+
+        body.light .field label,
+        body.light .terms-row,
+        body.light .checkbox-row strong {
+            color: #222;
+        }
+
+        body.light .checkbox-row small,
+        body.light .hint {
+            color: #666;
+        }
+
+        body.light .field input,
+        body.light .field select,
+        body.light .field textarea,
+        body.light .checkbox-row {
+            background: #f7f7f7;
+            color: #171717;
+            border-color: rgba(0, 0, 0, 0.15);
+        }
+
+        body.light .field select option {
+            background: #fff;
+            color: #171717;
+        }
+
+        body.light .btn-ghost {
+            color: #333;
+            border-color: rgba(0, 0, 0, 0.2);
+        }
+
+        body.light .interprete-box {
+            color: #333;
+            background: rgba(206, 18, 18, 0.05);
+        }
+
+        body.light .modal-box {
+            background: #ffffff;
+        }
+
+        body.light .modal-head h2 {
+            color: #171717;
+        }
+
+        body.light .modal-close {
+            background: #eee;
+            color: #171717;
+        }
+
+        body.light .modal-body h3 {
+            color: #171717;
+        }
+
+        body.light .modal-body p {
+            color: #555;
+        }
+
+        /* RESPONSIVO */
+
+        @media (max-width: 920px) {
+            .reserva-page {
+                padding-top: 100px;
+            }
+
+            .reserva-grid {
+                grid-template-columns: 1fr;
+                gap: 28px;
+            }
+
+            .summary-card {
+                position: static;
+            }
+        }
+
+        @media (max-width: 600px) {
+            .reserva-page {
+                padding: 90px 0 70px;
+            }
+
+            .form-card {
+                padding: 24px 18px;
+            }
+
+            .form-grid {
+                grid-template-columns: 1fr;
+            }
+
+            .form-actions {
+                grid-template-columns: 1fr;
+            }
+
+            .modal-foot {
+                flex-direction: column-reverse;
+            }
+        }
+    </style>
+</head>
+
+<body>
+
+    <a class="skip-link" href="#reserva">Pular para o formulário</a>
+
+    <!-- ================= HEADER ================= -->
+    <header class="header">
+        <div class="header-container">
+
+            <a class="brand" href="index.html" aria-label="Effugium - Início">
+                <img class="logo" src="sources/images/effugium1.png" alt="Logo Effugium">
+            </a>
+
+            <nav class="nav-menu" id="main-nav" aria-label="Navegação principal">
+                <a class="nav-item" href="index.html">INÍCIO</a>
+                <a class="nav-item" href="index.html#about">SOBRE NÓS</a>
+                <a class="nav-item" href="index.html#salas">SALAS</a>
+                <a class="nav-item" href="index.html#ranking">RANKING</a>
+                <a class="nav-item" href="index.html#localization">ONDE ESTAMOS</a>
+                <a class="nav-item" href="index.html#team">EQUIPE</a>
+                <a class="nav-item" href="galeria.html">GALERIA</a>
+
+                <button class="theme-btn mobile-theme" id="theme-toggle-mobile" type="button" aria-label="Alterar tema">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+            </nav>
+
+            <div class="header-actions">
+                <button class="theme-btn" id="theme-toggle" type="button" aria-label="Alterar tema">
+                    <i class="fa-solid fa-sun"></i>
+                </button>
+
+                <button class="hamburger" id="menu-toggle" type="button"
+                        aria-label="Abrir menu"
+                        aria-controls="main-nav"
+                        aria-expanded="false">
+                    <span></span>
+                    <span></span>
+                    <span></span>
+                </button>
+            </div>
+        </div>
+    </header>
+
+    <main class="reserva-page" id="reserva">
+        <div class="container">
+
+            <div class="section-label">
+                <span class="red-line"></span>
+                <p>RESERVAS</p>
+            </div>
+
+            <h1 class="reserva-title">Reserve <span>sua sala</span></h1>
+            <p class="reserva-intro">
+                Escolha a sala, a data e o horário, preencha os dados da equipe e confirme.
+                Sua solicitação será enviada pelo WhatsApp para a nossa equipe confirmar a disponibilidade.
+            </p>
+
+            <div class="reserva-grid" style="margin-top: 40px;">
+
+                <!-- RESUMO (atualizado pelo JS) -->
+                <aside class="summary-card" aria-live="polite">
+                    <h2>Resumo da reserva</h2>
+
+                    <ul class="summary-list">
+                        <li><span>Sala</span><span id="sum-sala">—</span></li>
+                        <li><span>Data</span><span id="sum-data">—</span></li>
+                        <li><span>Horário</span><span id="sum-horario">—</span></li>
+                        <li><span>Duração</span><span id="sum-duracao">—</span></li>
+                        <li><span>Jogadores</span><span id="sum-jogadores">—</span></li>
+                        <li><span>Intérprete de Libras</span><span id="sum-interprete">Não</span></li>
+                    </ul>
+
+                    <div class="summary-total">
+                        <span>Total estimado</span>
+                        <strong id="sum-total">R$ 0</strong>
+                    </div>
+                    <p class="summary-note">R$ 110 por pessoa. Valor sujeito à confirmação pela equipe.</p>
+                </aside>
+
+                <!-- FORMULÁRIO -->
+                <form class="form-card" id="reserva-form" novalidate>
+
+                    <p class="form-section-title">1. Sala e horário</p>
+
+                    <div class="form-grid">
+
+                        <div class="field full">
+                            <label for="sala">Sala <span class="req">*</span></label>
+                            <select id="sala" name="sala" required data-msg="Selecione uma sala.">
+                                <option value="">Selecione uma sala</option>
+                            </select>
+                            <span class="error-msg">Selecione uma sala.</span>
+                        </div>
+
+                        <div class="field">
+                            <label for="data">Data <span class="req">*</span></label>
+                            <input type="date" id="data" name="data" required data-msg="Escolha uma data válida.">
+                            <span class="error-msg">Escolha uma data válida.</span>
+                        </div>
+
+                        <div class="field">
+                            <label for="horario">Horário <span class="req">*</span></label>
+                            <select id="horario" name="horario" required data-msg="Selecione um horário.">
+                                <option value="">Selecione um horário</option>
+                            </select>
+                            <span class="error-msg">Selecione um horário.</span>
+                        </div>
+
+                        <div class="field full">
+                            <label for="jogadores">Número de jogadores <span class="req">*</span></label>
+                            <input type="number" id="jogadores" name="jogadores" required
+                                   min="1" max="6" step="1" placeholder="Selecione a sala primeiro"
+                                   data-msg="Quantidade de jogadores fora do limite da sala.">
+                            <span class="hint" id="jogadores-hint">O número de jogadores depende da sala escolhida.</span>
+                            <span class="error-msg">Quantidade de jogadores fora do limite da sala.</span>
+                        </div>
+
+                    </div>
+
+                    <p class="form-section-title" style="margin-top: 32px;">2. Dados da equipe</p>
+
+                    <div class="form-grid">
+
+                        <div class="field full">
+                            <label for="equipe">Nome da equipe <span class="req">*</span></label>
+                            <input type="text" id="equipe" name="equipe" required maxlength="60"
+                                   placeholder="Ex.: Os Investigadores"
+                                   data-msg="Informe o nome da equipe.">
+                            <span class="error-msg">Informe o nome da equipe.</span>
+                        </div>
+
+                        <div class="field">
+                            <label for="responsavel">Responsável <span class="req">*</span></label>
+                            <input type="text" id="responsavel" name="responsavel" required maxlength="80"
+                                   placeholder="Nome completo"
+                                   data-msg="Informe o nome do responsável.">
+                            <span class="error-msg">Informe o nome do responsável.</span>
+                        </div>
+
+                        <div class="field">
+                            <label for="telefone">WhatsApp <span class="req">*</span></label>
+                            <input type="tel" id="telefone" name="telefone" required
+                                   placeholder="(11) 98765-4321" inputmode="tel"
+                                   data-msg="Informe um telefone com DDD.">
+                            <span class="error-msg">Informe um telefone com DDD.</span>
+                        </div>
+
+                        <div class="field full">
+                            <label for="email">E-mail <span class="req">*</span></label>
+                            <input type="email" id="email" name="email" required
+                                   placeholder="seuemail@exemplo.com"
+                                   data-msg="Informe um e-mail válido.">
+                            <span class="error-msg">Informe um e-mail válido.</span>
+                        </div>
+
+                    </div>
+
+                    <p class="form-section-title" style="margin-top: 32px;">3. Acessibilidade</p>
+
+                    <div class="field full">
+                        <label class="checkbox-row" for="interprete">
+                            <input type="checkbox" id="interprete" name="interprete">
+                            <div>
+                                <strong>Precisamos de intérprete de Libras</strong>
+                                <small>Marque esta opção se algum integrante da equipe precisa de intérprete de Língua Brasileira de Sinais.</small>
+                            </div>
+                        </label>
+
+                        <div class="interprete-box" id="interprete-box">
+                            Vamos providenciar um intérprete de Libras para a sua sessão. Para isso, pedimos que a reserva
+                            seja feita com pelo menos <strong>3 dias</strong> de antecedência. Use o campo de observações
+                            para nos contar qualquer necessidade específica.
+                        </div>
+                    </div>
+
+                    <p class="form-section-title" style="margin-top: 32px;">4. Observações e termos</p>
+
+                    <div class="form-grid">
+
+                        <div class="field full">
+                            <label for="observacoes">Observações</label>
+                            <textarea id="observacoes" name="observacoes" maxlength="500"
+                                      placeholder="Ex.: aniversário, algum integrante com restrição de movimento, etc."></textarea>
+                        </div>
+
+                        <div class="field full">
+                            <div class="terms-row">
+                                <input type="checkbox" id="termos" name="termos" required
+                                       data-msg="Você precisa aceitar os termos para continuar.">
+                                <label for="termos" style="text-transform:none; letter-spacing:0; font-size:0.9rem; font-weight:400; font-family: var(--body);">
+                                    Li e aceito os
+                                </label>
+                                <button type="button" class="link-btn" id="abrir-termos">termos de uso</button>
+                                <span class="req" style="color:var(--red)">*</span>
+                            </div>
+                            <span class="error-msg">Você precisa aceitar os termos para continuar.</span>
+                        </div>
+
+                    </div>
+
+                    <div class="form-actions">
+                        <button type="submit" class="btn-primary">
+                            <i class="fa-brands fa-whatsapp"></i>&nbsp; ENVIAR RESERVA
+                        </button>
+                        <button type="reset" class="btn-ghost" id="limpar">LIMPAR</button>
+                    </div>
+
+                    <div class="alert-success" id="sucesso" role="status">
+                        Pronto! Abrimos o WhatsApp com os dados da sua reserva. Basta enviar a mensagem para a equipe
+                        confirmar o seu horário.
+                    </div>
+
+                </form>
+            </div>
+        </div>
+    </main>
+
+    <!-- ================= MODAL DE TERMOS ================= -->
+    <div class="modal" id="termos-modal" role="dialog" aria-modal="true" aria-labelledby="termos-titulo">
+        <div class="modal-box">
+            <div class="modal-head">
+                <h2 id="termos-titulo">Termos de uso</h2>
+                <button type="button" class="modal-close" id="fechar-termos" aria-label="Fechar termos">
+                    <i class="fa-solid fa-xmark"></i>
+                </button>
+            </div>
+            <div class="modal-body" id="termos-conteudo"></div>
+            <div class="modal-foot">
+                <button type="button" class="btn-ghost" id="recusar-termos">Fechar</button>
+                <button type="button" class="btn-primary" id="aceitar-termos">Li e aceito</button>
+            </div>
+        </div>
+    </div>
+
+    <!-- ================= FOOTER ================= -->
+    <footer class="footer">
+        <img src="sources/images/effugium1.png" alt="Effugium" class="footer-logo">
+        <p>Todos os direitos reservados pela EFFUGIUM © 2026 | Effugium Jogos e Experiências Imersivas LTDA</p>
+    </footer>
+
+    <script>
+        // ================= DADOS =================
+
+        const WHATSAPP = "5511983360146";
+        const PRECO = 110;
+
+        // Configuração das salas (limites de jogadores e duração)
+        const SALAS = {
+            serial:      { nome: "Porão do Serial Killer",  min: 4, max: 6, duracao: 60 },
+            espaco:      { nome: "Sozinho no Espaço",       min: 2, max: 5, duracao: 60 },
+            alternativo: { nome: "Escape Alternativo",      min: 2, max: 6, duracao: 45 },
+            circo:       { nome: "O Circo de Horrores",     min: 3, max: 6, duracao: 60 }
+        };
+
+        // Horários disponíveis (ajuste conforme o funcionamento)
+        const HORARIOS = [
+            "10:00", "11:00", "12:00", "13:00", "14:00",
+            "15:00", "16:00", "17:00", "18:00", "19:00", "20:00"
+        ];
+
+        // Termos de uso (exibidos no modal)
+        const TERMOS = [
+            {
+                titulo: "1. Reserva e confirmação",
+                texto: "A reserva só é confirmada após o contato da nossa equipe pelo WhatsApp informado. Horários sujeitos à disponibilidade."
+            },
+            {
+                titulo: "2. Pagamento",
+                texto: "O valor é de R$ 110 por pessoa. O pagamento pode ser combinado com a equipe no momento da confirmação."
+            },
+            {
+                titulo: "3. Cancelamento e remarcação",
+                texto: "Cancelamentos ou remarcações devem ser avisados com pelo menos 24 horas de antecedência. Após esse prazo, o valor pode não ser reembolsado."
+            },
+            {
+                titulo: "4. Idade e responsáveis",
+                texto: "Menores de 18 anos só podem participar acompanhados de um responsável legal, que deve assinar a ciência destes termos no dia da sessão."
+            },
+            {
+                titulo: "5. Saúde e segurança",
+                texto: "A experiência contém penumbra, sustos, sons intensos e situações de tensão. Pessoas com problemas cardíacos, epilepsia, gestantes, pessoas com claustrofobia ou outras condições de saúde devem avisar a equipe antes da sessão."
+            },
+            {
+                titulo: "6. Conduta e patrimônio",
+                texto: "Os participantes devem respeitar os cenários, equipamentos e demais pessoas. Danos causados ao espaço poderão ser cobrados."
+            },
+            {
+                titulo: "7. Imagens",
+                texto: "Durante a sessão podem ser feitos registros de imagem e vídeo para divulgação da Effugium. Quem não quiser ser registrado deve informar a equipe antes de começar."
+            },
+            {
+                titulo: "8. Acessibilidade",
+                texto: "Para intérprete de Libras ou outra necessidade de acessibilidade, solicite no formulário com pelo menos 3 dias de antecedência."
+            }
+        ];
+
+        // ================= ELEMENTOS =================
+
+        const form = document.getElementById("reserva-form");
+        const salaSel = document.getElementById("sala");
+        const dataInp = document.getElementById("data");
+        const horarioSel = document.getElementById("horario");
+        const jogadoresInp = document.getElementById("jogadores");
+        const jogadoresHint = document.getElementById("jogadores-hint");
+        const telefoneInp = document.getElementById("telefone");
+        const interpreteChk = document.getElementById("interprete");
+        const interpreteBox = document.getElementById("interprete-box");
+        const termosChk = document.getElementById("termos");
+        const termosModal = document.getElementById("termos-modal");
+        const termosConteudo = document.getElementById("termos-conteudo");
+        const sucesso = document.getElementById("sucesso");
+
+        const sum = {
+            sala: document.getElementById("sum-sala"),
+            data: document.getElementById("sum-data"),
+            horario: document.getElementById("sum-horario"),
+            duracao: document.getElementById("sum-duracao"),
+            jogadores: document.getElementById("sum-jogadores"),
+            interprete: document.getElementById("sum-interprete"),
+            total: document.getElementById("sum-total")
+        };
+
+        // ================= MONTAGEM DOS SELECTS =================
+
+        Object.entries(SALAS).forEach(([key, sala]) => {
+            salaSel.add(new Option(sala.nome, key));
+        });
+
+        HORARIOS.forEach(h => horarioSel.add(new Option(h, h)));
+
+        // Data mínima = hoje
+        const hoje = new Date();
+        hoje.setMinutes(hoje.getMinutes() - hoje.getTimezoneOffset());
+        dataInp.min = hoje.toISOString().split("T")[0];
+
+        // Pré-seleção da sala pela URL (ex.: reservar.html?sala=circo)
+        const salaParam = new URLSearchParams(window.location.search).get("sala");
+        if (salaParam && SALAS[salaParam]) {
+            salaSel.value = salaParam;
+        }
+
+        // ================= FUNÇÕES =================
+
+        function formatarData(valor) {
+            if (!valor) return "—";
+            const [ano, mes, dia] = valor.split("-");
+            return `${dia}/${mes}/${ano}`;
+        }
+
+        function formatarMoeda(valor) {
+            return valor.toLocaleString("pt-BR", { style: "currency", currency: "BRL" });
+        }
+
+        function formatarTelefone(valor) {
+            const d = valor.replace(/\D/g, "").slice(0, 11);
+            if (!d) return "";
+            if (d.length <= 2) return `(${d}`;
+            const ddd = d.slice(0, 2);
+            const resto = d.slice(2);
+            const corte = resto.length > 8 ? 5 : 4;
+            const primeira = resto.slice(0, corte);
+            const segunda = resto.slice(corte);
+            return `(${ddd}) ${primeira}${segunda ? "-" + segunda : ""}`;
+        }
+
+        function atualizarLimitesJogadores() {
+            const sala = SALAS[salaSel.value];
+
+            if (!sala) {
+                jogadoresInp.removeAttribute("min");
+                jogadoresInp.removeAttribute("max");
+                jogadoresInp.placeholder = "Selecione a sala primeiro";
+                jogadoresHint.textContent = "O número de jogadores depende da sala escolhida.";
+                return;
+            }
+
+            jogadoresInp.min = sala.min;
+            jogadoresInp.max = sala.max;
+            jogadoresInp.placeholder = `${sala.min} a ${sala.max}`;
+            jogadoresHint.textContent = `Esta sala aceita de ${sala.min} a ${sala.max} jogadores.`;
+        }
+
+        function atualizarResumo() {
+            const sala = SALAS[salaSel.value];
+            const jogadores = parseInt(jogadoresInp.value, 10);
+
+            sum.sala.textContent = sala ? sala.nome : "—";
+            sum.data.textContent = formatarData(dataInp.value);
+            sum.horario.textContent = horarioSel.value || "—";
+            sum.duracao.textContent = sala ? `${sala.duracao} min` : "—";
+            sum.jogadores.textContent = isNaN(jogadores) ? "—" : jogadores;
+            sum.interprete.textContent = interpreteChk.checked ? "Sim" : "Não";
+
+            const total = !isNaN(jogadores) && jogadores > 0 ? PRECO * jogadores : 0;
+            sum.total.textContent = formatarMoeda(total);
+        }
+
+        function campoValido(el) {
+            if (el === telefoneInp) {
+                return el.value.replace(/\D/g, "").length >= 10;
+            }
+            if (el.type === "number" && el.value !== "" && sala_fora_do_limite(el)) {
+                return false;
+            }
+            return el.checkValidity();
+        }
+
+        function sala_fora_do_limite(el) {
+            const sala = SALAS[salaSel.value];
+            if (!sala) return false;
+            const n = parseInt(el.value, 10);
+            return n < sala.min || n > sala.max;
+        }
+
+        function marcarErro(el) {
+            const campo = el.closest(".field");
+            if (campo) campo.classList.toggle("invalid", !campoValido(el));
+        }
+
+        function validarFormulario() {
+            const campos = form.querySelectorAll("[required]");
+            let primeiroInvalido = null;
+
+            campos.forEach(el => {
+                const ok = campoValido(el);
+                const campo = el.closest(".field");
+                if (campo) campo.classList.toggle("invalid", !ok);
+                if (!ok && !primeiroInvalido) primeiroInvalido = el;
+            });
+
+            if (primeiroInvalido) primeiroInvalido.focus();
+            return !primeiroInvalido;
+        }
+
+        function montarMensagem() {
+            const sala = SALAS[salaSel.value];
+            const jogadores = parseInt(jogadoresInp.value, 10);
+            const obs = document.getElementById("observacoes").value.trim();
+
+            return [
+                "*Nova reserva – Effugium*",
+                "",
+                `*Sala:* ${sala.nome}`,
+                `*Data:* ${formatarData(dataInp.value)}`,
+                `*Horário:* ${horarioSel.value}`,
+                `*Jogadores:* ${jogadores}`,
+                `*Equipe:* ${document.getElementById("equipe").value.trim()}`,
+                `*Responsável:* ${document.getElementById("responsavel").value.trim()}`,
+                `*WhatsApp:* ${telefoneInp.value}`,
+                `*E-mail:* ${document.getElementById("email").value.trim()}`,
+                `*Intérprete de Libras:* ${interpreteChk.checked ? "Sim" : "Não"}`,
+                obs ? `*Observações:* ${obs}` : "",
+                "",
+                `*Total estimado:* ${formatarMoeda(PRECO * jogadores)}`
+            ].filter((linha, i, arr) => !(linha === "" && arr[i - 1] === "")).join("\n");
+        }
+
+        function abrirTermos() {
+            termosModal.classList.add("open");
+            document.body.classList.add("modal-open");
+            document.getElementById("aceitar-termos").focus();
+        }
+
+        function fecharTermos() {
+            termosModal.classList.remove("open");
+            document.body.classList.remove("modal-open");
+        }
+
+        // ================= RENDERIZA TERMOS (JS) =================
+
+        termosConteudo.innerHTML = TERMOS.map(t =>
+            `<h3>${t.titulo}</h3><p>${t.texto}</p>`
+        ).join("");
+
+        // ================= EVENTOS =================
+
+        salaSel.addEventListener("change", () => {
+            atualizarLimitesJogadores();
+            marcarErro(salaSel);
+            atualizarResumo();
+        });
+
+        [dataInp, horarioSel, jogadoresInp].forEach(el => {
+            el.addEventListener("input", () => {
+                marcarErro(el);
+                atualizarResumo();
+            });
+            el.addEventListener("change", () => {
+                marcarErro(el);
+                atualizarResumo();
+            });
+        });
+
+        // Máscara do telefone
+        telefoneInp.addEventListener("input", () => {
+            telefoneInp.value = formatarTelefone(telefoneInp.value);
+            marcarErro(telefoneInp);
+        });
+
+        // Validação ao sair dos campos obrigatórios
+        form.querySelectorAll("[required]").forEach(el => {
+            el.addEventListener("blur", () => marcarErro(el));
+        });
+
+        // Intérprete: mostra o aviso e atualiza o resumo
+        interpreteChk.addEventListener("change", () => {
+            interpreteBox.classList.toggle("show", interpreteChk.checked);
+            atualizarResumo();
+        });
+
+        // Termos
+        termosChk.addEventListener("change", () => marcarErro(termosChk));
+        document.getElementById("abrir-termos").addEventListener("click", abrirTermos);
+        document.getElementById("fechar-termos").addEventListener("click", fecharTermos);
+        document.getElementById("recusar-termos").addEventListener("click", fecharTermos);
+        document.getElementById("aceitar-termos").addEventListener("click", () => {
+            termosChk.checked = true;
+            marcarErro(termosChk);
+            fecharTermos();
+        });
+
+        termosModal.addEventListener("click", e => {
+            if (e.target === termosModal) fecharTermos();
+        });
+
+        document.addEventListener("keydown", e => {
+            if (e.key === "Escape" && termosModal.classList.contains("open")) fecharTermos();
+        });
+
+        // Envio: valida e abre o WhatsApp com os dados prontos
+        form.addEventListener("submit", e => {
+            e.preventDefault();
+            sucesso.classList.remove("show");
+
+            if (!validarFormulario()) return;
+
+            const mensagem = montarMensagem();
+            const url = `https://wa.me/${WHATSAPP}?text=${encodeURIComponent(mensagem)}`;
+
+            window.open(url, "_blank", "noopener,noreferrer");
+            sucesso.classList.add("show");
+        });
+
+        // Limpar: reseta o formulário e o resumo
+        form.addEventListener("reset", () => {
+            setTimeout(() => {
+                interpreteBox.classList.remove("show");
+                sucesso.classList.remove("show");
+                form.querySelectorAll(".field.invalid").forEach(c => c.classList.remove("invalid"));
+                atualizarLimitesJogadores();
+                atualizarResumo();
+            }, 0);
+        });
+
+        // ================= MENU MOBILE =================
+
+        const menuToggle = document.getElementById("menu-toggle");
+        const mainNav = document.getElementById("main-nav");
+
+        function fecharMenu() {
+            mainNav.classList.remove("open");
+            menuToggle.classList.remove("active");
+            menuToggle.setAttribute("aria-expanded", "false");
+        }
+
+        menuToggle.addEventListener("click", () => {
+            const aberto = mainNav.classList.toggle("open");
+            menuToggle.classList.toggle("active", aberto);
+            menuToggle.setAttribute("aria-expanded", String(aberto));
+        });
+
+        document.querySelectorAll(".nav-item").forEach(link => {
+            link.addEventListener("click", fecharMenu);
+        });
+
+        window.addEventListener("resize", () => {
+            if (window.innerWidth > 920) fecharMenu();
+        });
+
+        // ================= TEMA =================
+
+        const themeButtons = [
+            document.getElementById("theme-toggle"),
+            document.getElementById("theme-toggle-mobile")
+        ];
+
+        function atualizarIconesTema() {
+            const claro = document.body.classList.contains("light");
+            themeButtons.forEach(btn => {
+                if (!btn) return;
+                btn.innerHTML = claro
+                    ? '<i class="fa-solid fa-moon"></i>'
+                    : '<i class="fa-solid fa-sun"></i>';
+            });
+        }
+
+        function definirTema(tema) {
+            document.body.classList.toggle("light", tema === "light");
+            localStorage.setItem("theme", tema);
+            atualizarIconesTema();
+        }
+
+        definirTema(localStorage.getItem("theme") === "light" ? "light" : "dark");
+
+        themeButtons.forEach(btn => {
+            if (!btn) return;
+            btn.addEventListener("click", () => {
+                definirTema(document.body.classList.contains("light") ? "dark" : "light");
+            });
+        });
+
+        // ================= INICIALIZAÇÃO =================
+
+        atualizarLimitesJogadores();
+        atualizarResumo();
+    </script>
+
+</body>
+</html>
